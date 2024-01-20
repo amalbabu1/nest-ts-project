@@ -1,5 +1,6 @@
-import { Controller, Get, Param, Post, Query, Req } from '@nestjs/common';
-import { Request, query } from 'express';
+import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
+import { Request } from 'express';
+import { CreateCatDto } from './create-cat-dto';
 
 @Controller('cats')
 export class CatsController {
@@ -19,13 +20,15 @@ export class CatsController {
   //   console.log(params);
   //   return 'This action returns all Cat Breeds';
   // }
+
   @Get(':id')
   getBreedsById(@Param('id') id: string): string {
     console.log(id);
     return 'This action returns all Cat Breeds';
   }
   @Post()
-  create(): string {
+  create(@Body() createCatDto: CreateCatDto): string {
+    console.log(createCatDto);
     return 'This action adds a new cat';
   }
 }
