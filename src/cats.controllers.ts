@@ -29,6 +29,6 @@ export class CatsController {
   @Post()
   create(@Body() createCatDto: CreateCatDto): string {
     console.log(createCatDto);
-    return 'This action adds a new cat';
+    return 'This action adds a new cat and logs body';
   }
 }
